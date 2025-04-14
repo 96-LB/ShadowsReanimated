@@ -81,7 +81,7 @@ internal static class ShadowPatch_Initialize {
         Sprite ____otherBeatShadowSprite,
         Transform ____scalePointTransform
     ) {
-        if(!Config.MoreShadows.Enabled) {
+        if(!Config.General.Enabled) {
             return;
         }
 
@@ -112,7 +112,7 @@ internal static class ShadowPatch_UpdateState {
         Sprite ____otherBeatShadowSprite,
         Transform ____scalePointTransform
     ) {
-        if(!Config.MoreShadows.Enabled) {
+        if(!Config.General.Enabled) {
             return;
         }
 
@@ -144,7 +144,7 @@ internal static class ShadowPatch_UpdateAnimations {
         SpriteRenderer ____monsterShadow,
         Transform ____scalePointTransform
     ) {
-        if(!Config.MoreShadows.Enabled) {
+        if(!Config.General.Enabled) {
             return;
         }
 

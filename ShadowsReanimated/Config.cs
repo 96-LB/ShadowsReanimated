@@ -13,25 +13,16 @@ public static class Config {
         }
     }
 
-    public static class MoreShadows {
+    public static class General {
         public static bool Enabled => enabled.Value;
         private static ConfigEntry<bool> enabled;
 
         public static void Initialize(ConfigGroup config) {
-            enabled = config.Bind("Enabled", true, "Enable more shadow shapes for off-beat enemies.");
-        }
-    }
-
-    public static class SfxPrediction {
-        public static bool Enabled => enabled.Value;
-        private static ConfigEntry<bool> enabled;
-        public static void Initialize(ConfigGroup config) {
-            enabled = config.Bind("Enabled", true, "Enable better sound effect prediction for enemy hits.");
+            enabled = config.Bind("Enabled", true, "Enables the mod.");
         }
     }
 
     public static void Initialize(ConfigFile config) {
-        MoreShadows.Initialize(new(config, "More Shadows"));
-        SfxPrediction.Initialize(new(config, "SFX Prediction"));
+        General.Initialize(new(config, "General"));
     }
 }
