@@ -15,7 +15,7 @@ public enum BeatType {
 }
 
 public static class Beat {
-    internal static BeatType GetBeatType(float beat, float TOL = 0.005f) {
+    internal static BeatType GetBeatType(float beat, float TOL = 0.001f) {
         beat = (beat % 1 + 1) % 1; // get fractional component
         bool approx(float x) => Mathf.Abs(beat - x) < TOL; // check if beat is approximately equal to x
 

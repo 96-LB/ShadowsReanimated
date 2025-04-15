@@ -63,9 +63,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] QuarterBeat {
+        internal static byte[] LeftTrapezoid {
             get {
-                object obj = ResourceManager.GetObject("QuarterBeat", resourceCulture);
+                object obj = ResourceManager.GetObject("LeftTrapezoid", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ThirdBeat {
+        internal static byte[] LeftTriangle {
             get {
-                object obj = ResourceManager.GetObject("ThirdBeat", resourceCulture);
+                object obj = ResourceManager.GetObject("LeftTriangle", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ThreeQuarterBeat {
+        internal static byte[] RightTrapezoid {
             get {
-                object obj = ResourceManager.GetObject("ThreeQuarterBeat", resourceCulture);
+                object obj = ResourceManager.GetObject("RightTrapezoid", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] TwoThirdBeat {
+        internal static byte[] RightTriangle {
             get {
-                object obj = ResourceManager.GetObject("TwoThirdBeat", resourceCulture);
+                object obj = ResourceManager.GetObject("RightTriangle", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -3,10 +3,10 @@
 namespace ShadowsReanimated;
 
 public static class Assets {
-    public static Sprite QuarterBeat { get; private set; }
-    public static Sprite ThirdBeat { get; private set; }
-    public static Sprite TwoThirdBeat { get; private set; }
-    public static Sprite ThreeQuarterBeat { get; private set; }
+    public static Sprite LeftTriangle { get; private set; }
+    public static Sprite RightTriangle { get; private set; }
+    public static Sprite LeftTrapezoid { get; private set; }
+    public static Sprite RightTrapezoid { get; private set; }
     
     private static Sprite MakeSprite(byte[] data) {
         Texture2D tex = new(0, 0);
@@ -20,9 +20,9 @@ public static class Assets {
     }
 
     public static void Initialize() {
-        QuarterBeat = MakeSprite(Properties.Resources.QuarterBeat);
-        ThirdBeat = MakeSprite(Properties.Resources.ThirdBeat);
-        TwoThirdBeat = MakeSprite(Properties.Resources.TwoThirdBeat);
-        ThreeQuarterBeat = MakeSprite(Properties.Resources.ThreeQuarterBeat);
+        LeftTriangle = MakeSprite(Properties.Resources.LeftTriangle);
+        RightTriangle = MakeSprite(Properties.Resources.RightTriangle);
+        LeftTrapezoid = MakeSprite(Properties.Resources.LeftTrapezoid);
+        RightTrapezoid = MakeSprite(Properties.Resources.RightTrapezoid);
     }
 }

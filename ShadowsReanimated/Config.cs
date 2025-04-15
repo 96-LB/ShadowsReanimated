@@ -14,11 +14,10 @@ public static class Config {
     }
 
     public static class General {
-        public static bool Enabled => enabled.Value;
-        private static ConfigEntry<bool> enabled;
-
+        public static ConfigEntry<ProfileType> Profile;
+        
         public static void Initialize(ConfigGroup config) {
-            enabled = config.Bind("Enabled", true, "Enables the mod.");
+            Profile = config.Bind("Profile", ProfileType.Default, "Selects a custom shadow profile.");
         }
     }
 
