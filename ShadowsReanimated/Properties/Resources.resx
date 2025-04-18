@@ -130,4 +130,22 @@
   <data name="RightTrapezoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\RightTrapezoid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="CircleMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\CircleMinus.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CirclePlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\CirclePlus.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HollowDiamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\HollowDiamond.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HollowSquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\HollowSquare.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LeftShortTrapezoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\LeftShortTrapezoid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RightShortTrapezoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\RightShortTrapezoid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

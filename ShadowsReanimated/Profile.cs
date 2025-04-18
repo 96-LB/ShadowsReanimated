@@ -37,10 +37,19 @@ public class Profile {
 
     public static void Initialize() {
         Default = new() {
-            QuarterBeat = Assets.LeftTriangle,
-            ThirdBeat = Assets.LeftTrapezoid,
-            TwoThirdBeat = Assets.RightTrapezoid,
-            ThreeQuarterBeat = Assets.RightTriangle,
+            QuarterBeat = Assets.GetSprite("LeftTriangle"),
+            ThirdBeat = Assets.GetSprite("LeftTrapezoid"),
+            TwoThirdBeat = Assets.GetSprite("RightTrapezoid"),
+            ThreeQuarterBeat = Assets.GetSprite("RightTriangle"),
+        };
+        Delta = new()
+        {
+            SixthBeat = Assets.GetSprite("LeftShortTrapezoid"),
+            ThirdBeat = Assets.GetSprite("LeftTriangle"),
+            TwoThirdBeat = Assets.GetSprite("RightTriangle"),
+            FiveSixthBeat = Assets.GetSprite("RightShortTrapezoid"),
+            QuarterBeat = Assets.GetSprite("HollowSquare"),
+            ThreeQuarterBeat = Assets.GetSprite("HollowDiamond"),
         };
         Vanilla = new();
         Custom = new();

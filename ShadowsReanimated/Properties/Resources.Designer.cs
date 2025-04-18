@@ -63,6 +63,56 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] CircleMinus {
+            get {
+                object obj = ResourceManager.GetObject("CircleMinus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CirclePlus {
+            get {
+                object obj = ResourceManager.GetObject("CirclePlus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HollowDiamond {
+            get {
+                object obj = ResourceManager.GetObject("HollowDiamond", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HollowSquare {
+            get {
+                object obj = ResourceManager.GetObject("HollowSquare", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] LeftShortTrapezoid {
+            get {
+                object obj = ResourceManager.GetObject("LeftShortTrapezoid", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] LeftTrapezoid {
             get {
                 object obj = ResourceManager.GetObject("LeftTrapezoid", resourceCulture);
@@ -76,6 +126,16 @@ namespace ShadowsReanimated.Properties {
         internal static byte[] LeftTriangle {
             get {
                 object obj = ResourceManager.GetObject("LeftTriangle", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RightShortTrapezoid {
+            get {
+                object obj = ResourceManager.GetObject("RightShortTrapezoid", resourceCulture);
                 return ((byte[])(obj));
             }
         }
