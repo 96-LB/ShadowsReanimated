@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace ShadowsReanimated;
 
@@ -10,62 +12,35 @@ public enum ProfileType {
     Custom
 }
 
-public class Profile {
-    public static Profile Default { get; private set; }
-    public static Profile Delta { get; private set; } // TODO: not implemented
-    public static Profile Kappa { get; private set; } // TODO: not implemented
-    public static Profile Vanilla { get; private set; }
-    public static CustomProfile Custom { get; private set; }
-    public static Profile Current => Config.General.Profile.Value switch {
-        ProfileType.Default => Default,
-        ProfileType.Delta => Delta,
-        ProfileType.Kappa => Kappa,
-        ProfileType.Vanilla => Vanilla,
-        ProfileType.Custom => Custom,
-        _ => Custom
+public class Profile(params (BeatType, SpriteType)[] sprites) {
+    private static readonly Dictionary<ProfileType, Profile> profiles = new() {
+        [ProfileType.Default] = new(
+            (BeatType.QuarterBeat, SpriteType.LeftTriangle),
+            (BeatType.ThirdBeat, SpriteType.LeftTrapezoid),
+            (BeatType.TwoThirdBeat, SpriteType.RightTrapezoid),
+            (BeatType.ThreeQuarterBeat, SpriteType.RightTriangle)
+        ),
+        [ProfileType.Delta] = new(
+            (BeatType.SixthBeat, SpriteType.LeftTrapezoid),
+            (BeatType.QuarterBeat, SpriteType.HollowSquare),
+            (BeatType.ThirdBeat, SpriteType.LeftTriangle),
+            (BeatType.TwoThirdBeat, SpriteType.RightTriangle),
+            (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond),
+            (BeatType.FiveSixthBeat, SpriteType.RightTrapezoid)
+        ),
+        [ProfileType.Kappa] = new(
+            (BeatType.QuarterBeat, SpriteType.HollowCircle),
+            (BeatType.ThirdBeat, SpriteType.Triangle),
+            (BeatType.TwoThirdBeat, SpriteType.HollowTriangle),
+            (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond)
+        ),
+        [ProfileType.Custom] = new CustomProfile()
     };
+    public static Profile Current => profiles.GetValueOrDefault(Config.General.Profile.Value);
 
-    public Sprite OnBeat { get; private set; }
-    public Sprite SixthBeat { get; private set; }
-    public Sprite QuarterBeat { get; private set; }
-    public Sprite ThirdBeat { get; private set; }
-    public Sprite HalfBeat { get; private set; }
-    public Sprite TwoThirdBeat { get; private set; }
-    public Sprite ThreeQuarterBeat { get; private set; }
-    public Sprite FiveSixthBeat { get; private set; }
-    public Sprite OtherBeat { get; private set; }
+    private readonly Dictionary<BeatType, SpriteType> sprites = sprites.ToDictionary(x => x.Item1, x => x.Item2);
 
-    public static void Initialize() {
-        Default = new() {
-            QuarterBeat = Assets.GetSprite("LeftTriangle"),
-            ThirdBeat = Assets.GetSprite("LeftTrapezoid"),
-            TwoThirdBeat = Assets.GetSprite("RightTrapezoid"),
-            ThreeQuarterBeat = Assets.GetSprite("RightTriangle"),
-        };
-        Delta = new()
-        {
-            SixthBeat = Assets.GetSprite("LeftShortTrapezoid"),
-            ThirdBeat = Assets.GetSprite("LeftTriangle"),
-            TwoThirdBeat = Assets.GetSprite("RightTriangle"),
-            FiveSixthBeat = Assets.GetSprite("RightShortTrapezoid"),
-            QuarterBeat = Assets.GetSprite("HollowSquare"),
-            ThreeQuarterBeat = Assets.GetSprite("HollowDiamond"),
-        };
-        Vanilla = new();
-        Custom = new();
-    }
+    public SpriteType Star => sprites.GetValueOrDefault(BeatType.OtherBeat, SpriteType.Star);
 
-    public Sprite GetSprite(BeatType beatType) {
-        return beatType switch {
-            BeatType.OnBeat => OnBeat,
-            BeatType.SixthBeat => SixthBeat,
-            BeatType.QuarterBeat => QuarterBeat,
-            BeatType.ThirdBeat => ThirdBeat,
-            BeatType.HalfBeat => HalfBeat,
-            BeatType.TwoThirdBeat => TwoThirdBeat,
-            BeatType.ThreeQuarterBeat => ThreeQuarterBeat,
-            BeatType.FiveSixthBeat => FiveSixthBeat,
-            _ => OtherBeat
-        } ?? OtherBeat;
-    }
+    public Sprite GetSprite(BeatType beatType) => Assets.GetSprite(sprites.GetValueOrDefault(beatType, Star));
 }

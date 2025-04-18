@@ -63,26 +63,6 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] CircleMinus {
-            get {
-                object obj = ResourceManager.GetObject("CircleMinus", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] CirclePlus {
-            get {
-                object obj = ResourceManager.GetObject("CirclePlus", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] HollowDiamond {
             get {
                 object obj = ResourceManager.GetObject("HollowDiamond", resourceCulture);

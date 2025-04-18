@@ -3,48 +3,52 @@ using System.Collections.Generic;
 
 namespace ShadowsReanimated;
 
-public static class Assets
-{
-    private static readonly Dictionary<string, Sprite> _sprites = new();
 
-    public static Sprite GetSprite(string name)
-    {
-        if (_sprites.TryGetValue(name, out var sprite))
-            return sprite;
-        throw new KeyNotFoundException($"Sprite '{name}' not found.");
-    }
+public enum SpriteType {
+    Circle,
+    Diamond,
+    Star,
+    Triangle, // TODO: missing sprite
+    Square, // TODO: missing sprite
+    LeftTriangle,
+    RightTriangle,
+    LeftTrapezoid,
+    RightTrapezoid,
+    HollowCircle, // TODO: missing sprite
+    HollowDiamond, // TODO: needs edit
+    HollowTriangle, // TODO: missing sprite
+    HollowSquare, // TODO: needs edit
+    Custom
+}
 
-    private static Sprite MakeSprite(byte[] data)
-    {
+
+public static class Assets {
+    private static readonly Dictionary<SpriteType, byte[]> images = new() {
+        [SpriteType.LeftTriangle] = Properties.Resources.LeftTriangle,
+        [SpriteType.RightTriangle] = Properties.Resources.RightTriangle,
+        [SpriteType.LeftTrapezoid] = Properties.Resources.LeftTrapezoid,
+        [SpriteType.RightTrapezoid] = Properties.Resources.RightTrapezoid,
+        [SpriteType.HollowDiamond] = Properties.Resources.HollowDiamond,
+        [SpriteType.HollowSquare] = Properties.Resources.HollowSquare,
+    };
+    private static readonly Dictionary<SpriteType, Sprite> sprites = [];
+
+    public static Sprite GetSprite(SpriteType key) => sprites.GetValueOrDefault(key);
+
+    private static Sprite MakeSprite(byte[] data) {
         Texture2D tex = new(0, 0);
         tex.LoadImage(data);
         return Sprite.Create(
             tex,
-            new Rect(0, 0, tex.width, tex.height),
-            new Vector2(0.5f, 0.5f),
+            new(0, 0, tex.width, tex.height),
+            new(0.5f, 0.5f),
             48
         );
     }
 
-    public static void Initialize()
-    {
-        var resourceMap = new Dictionary<string, byte[]>
-        {
-            { "LeftTriangle", Properties.Resources.LeftTriangle },
-            { "RightTriangle", Properties.Resources.RightTriangle },
-            { "LeftTrapezoid", Properties.Resources.LeftTrapezoid },
-            { "RightTrapezoid", Properties.Resources.RightTrapezoid },
-            { "CircleMinus", Properties.Resources.CircleMinus },
-            { "CirclePlus", Properties.Resources.CirclePlus },
-            { "HollowDiamond", Properties.Resources.HollowDiamond },
-            { "HollowSquare", Properties.Resources.HollowSquare },
-            { "LeftShortTrapezoid", Properties.Resources.LeftShortTrapezoid },
-            { "RightShortTrapezoid", Properties.Resources.RightShortTrapezoid }
-        };
-
-        foreach (var kvp in resourceMap)
-        {
-            _sprites[kvp.Key] = MakeSprite(kvp.Value);
+    public static void Initialize() {
+        foreach(var (key, value) in images) {
+            sprites[key] = MakeSprite(value);
         }
     }
 }

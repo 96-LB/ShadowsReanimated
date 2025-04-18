@@ -18,7 +18,6 @@ public class Plugin : BaseUnityPlugin {
         
         ShadowsReanimated.Config.Initialize(Config);
         Assets.Initialize();
-        Profile.Initialize();
 
         Harmony harmony = new(GUID);
         harmony.PatchAll();
