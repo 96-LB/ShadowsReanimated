@@ -32,8 +32,12 @@ public static class Assets {
         [SpriteType.HollowSquare] = Properties.Resources.HollowSquare,
     };
     private static readonly Dictionary<SpriteType, Sprite> sprites = [];
+    private static readonly Dictionary<BeatType, Sprite> customs = [];
 
-    public static Sprite GetSprite(SpriteType key) => sprites.GetValueOrDefault(key);
+    public static Sprite GetSprite(SpriteType key, BeatType beat) => key switch {
+        SpriteType.Custom => customs.GetValueOrDefault(beat),
+        _ => sprites.GetValueOrDefault(key)
+    };
 
     private static Sprite MakeSprite(byte[] data) {
         Texture2D tex = new(0, 0);

@@ -40,7 +40,7 @@ public class Profile(params (BeatType, SpriteType)[] sprites) {
 
     private readonly Dictionary<BeatType, SpriteType> sprites = sprites.ToDictionary(x => x.Item1, x => x.Item2);
 
-    public SpriteType Star => sprites.GetValueOrDefault(BeatType.OtherBeat, SpriteType.Star);
-
-    public Sprite GetSprite(BeatType beatType) => Assets.GetSprite(sprites.GetValueOrDefault(beatType, Star));
+    public virtual SpriteType GetSpriteType(BeatType beatType) => sprites.GetValueOrDefault(beatType, sprites.GetValueOrDefault(BeatType.OtherBeat, SpriteType.Star));
+    
+    public Sprite GetSprite(BeatType beatType) => Assets.GetSprite(GetSpriteType(beatType), beatType);
 }
