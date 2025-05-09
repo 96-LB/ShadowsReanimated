@@ -1,12 +1,22 @@
 ﻿using HarmonyLib;
 using RhythmRift.Enemies;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace ShadowsReanimated.Patches;
 
 
 public class ShadowState : State<RREnemy, ShadowState> {
+    public static Material VanillaMaterial { get; private set; }
+    private static Material moddedMaterial;
+    public static Material ModdedMaterial {
+        get {
+            if(!moddedMaterial) {
+                moddedMaterial = new(Shader.Find("Sprites/Default"));
+                moddedMaterial.SetColor(RREnemy.ColorShaderPropertyId, Color.white);
+            }
+            return moddedMaterial;
+        }
+    }
     public SpriteRenderer Shadow => Instance._monsterShadow;
     public BeatType Beat { get; private set; }
     public Preset Preset { get; private set; }
@@ -30,11 +40,20 @@ public class ShadowState : State<RREnemy, ShadowState> {
     }
 
     public void RefreshColor() {
-        if(!Shadow || !Config.General.Colors.Value || Instance._isVibePowerActive || Instance._isPartOfVibeChain) {
+        if(!Shadow) {
+            return;
+        }
+
+        if(!VanillaMaterial) {
+            VanillaMaterial = Shadow.material;
+        }
+
+        if(!Config.General.Colors.Value || Instance._isVibePowerActive || Instance._isPartOfVibeChain) {
+            Shadow.material = VanillaMaterial;
             return;
         }
         
-        Shadow.material.shader = Shader.Find("Sprites/Default"); // TODO: this is both inefficient and bad and wrong
+        Shadow.material = ModdedMaterial;
         Shadow.color = Config.Colors.GetColor(Beat);
 
         // the old shader properties mess with our color
