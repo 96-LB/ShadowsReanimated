@@ -8,17 +8,17 @@ namespace ShadowsReanimated.Patches;
 public class ShadowState : State<RREnemy, ShadowState> {
     public SpriteRenderer Shadow => Instance._monsterShadow;
     public BeatType Beat { get; private set; }
-    public Profile Profile { get; private set; }
+    public Preset Preset { get; private set; }
 
-    public void SetShadow(Profile profile, BeatType beat, bool force = false) {
-        if(!force && profile == Profile && beat == Beat && profile is not CustomProfile) {
+    public void SetShadow(Preset preset, BeatType beat, bool force = false) {
+        if(!force && preset == Preset && beat == Beat && preset is not CustomPreset) {
             return;
         }
 
-        Profile = profile;
+        Preset = preset;
         Beat = beat;
         if(Shadow) {
-            Shadow.sprite = Profile?.GetSprite(Beat) ?? Beat switch {
+            Shadow.sprite = Preset?.GetSprite(Beat) ?? Beat switch {
                 BeatType.OnBeat => Instance._onBeatShadowSprite,
                 BeatType.HalfBeat => Instance._halfBeatShadowSprite,
                 _ => Instance._otherBeatShadowSprite
@@ -44,7 +44,7 @@ public static class ShadowPatch {
     public static void Initialize(RREnemy __instance) {
         var state = ShadowState.Of(__instance);
         var beat = Beat.GetBeatType(__instance.SpawnTrueBeatNumber);
-        state.SetShadow(Profile.Current, beat, force: true);
+        state.SetShadow(Preset.Current, beat, force: true);
         state.FlipSpriteIfNeeded();
     }
 
@@ -55,7 +55,7 @@ public static class ShadowPatch {
         if(float.IsFinite(__instance.NextActionRowTrueBeatNumber)) {
             var state = ShadowState.Of(__instance);
             var beat = Beat.GetBeatType(__instance.NextActionRowTrueBeatNumber);
-            state.SetShadow(Profile.Current, beat);
+            state.SetShadow(Preset.Current, beat);
         }
 
         // prevent the original code from overwriting our shadow

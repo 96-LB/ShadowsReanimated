@@ -4,23 +4,23 @@ using UnityEngine;
 
 namespace ShadowsReanimated;
 
-public enum ProfileType {
+public enum PresetType {
     Default,
     Delta,
-    Kappa,
+    Katie,
     Vanilla,
     Custom
 }
 
-public class Profile(params (BeatType, SpriteType)[] sprites) {
-    private static readonly Dictionary<ProfileType, Profile> profiles = new() {
-        [ProfileType.Default] = new(
+public class Preset(params (BeatType, SpriteType)[] sprites) {
+    private static readonly Dictionary<PresetType, Preset> presets = new() {
+        [PresetType.Default] = new(
             (BeatType.QuarterBeat, SpriteType.LeftTriangle),
             (BeatType.ThirdBeat, SpriteType.LeftTrapezoid),
             (BeatType.TwoThirdBeat, SpriteType.RightTrapezoid),
             (BeatType.ThreeQuarterBeat, SpriteType.RightTriangle)
         ),
-        [ProfileType.Delta] = new(
+        [PresetType.Delta] = new(
             (BeatType.SixthBeat, SpriteType.LeftTrapezoid),
             (BeatType.QuarterBeat, SpriteType.HollowSquare),
             (BeatType.ThirdBeat, SpriteType.LeftTriangle),
@@ -28,15 +28,15 @@ public class Profile(params (BeatType, SpriteType)[] sprites) {
             (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond),
             (BeatType.FiveSixthBeat, SpriteType.RightTrapezoid)
         ),
-        [ProfileType.Kappa] = new(
+        [PresetType.Katie] = new(
             (BeatType.QuarterBeat, SpriteType.HollowCircle),
             (BeatType.ThirdBeat, SpriteType.Triangle),
             (BeatType.TwoThirdBeat, SpriteType.HollowTriangle),
             (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond)
         ),
-        [ProfileType.Custom] = new CustomProfile()
+        [PresetType.Custom] = new CustomPreset()
     };
-    public static Profile Current => profiles.GetValueOrDefault(Config.General.Profile.Value);
+    public static Preset Current => presets.GetValueOrDefault(Config.General.Preset.Value);
 
     private readonly Dictionary<BeatType, SpriteType> sprites = sprites.ToDictionary(x => x.Item1, x => x.Item2);
 

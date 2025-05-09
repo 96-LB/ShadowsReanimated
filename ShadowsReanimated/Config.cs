@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using UnityEngine;
 namespace ShadowsReanimated;
 public static class Config {
     public class ConfigGroup(ConfigFile config, string group) {
@@ -12,10 +13,10 @@ public static class Config {
     }
 
     public static class General {
-        public static ConfigEntry<ProfileType> Profile;
+        public static ConfigEntry<PresetType> Preset;
         
         public static void Initialize(ConfigGroup config) {
-            Profile = config.Bind("Profile", ProfileType.Default, "Selects a custom shadow profile.");
+            Preset = config.Bind("Preset", PresetType.Default, "Selects a custom shadow preset.");
         }
     }
 

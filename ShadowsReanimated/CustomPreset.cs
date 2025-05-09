@@ -1,7 +1,7 @@
 ﻿namespace ShadowsReanimated;
 
 
-public class CustomProfile : Profile {
+public class CustomPreset : Preset {
     public override SpriteType GetSpriteType(BeatType beatType) => beatType switch {
         BeatType.OnBeat => Config.Custom.OnBeat.Value,
         BeatType.SixthBeat => Config.Custom.SixthBeat.Value,
