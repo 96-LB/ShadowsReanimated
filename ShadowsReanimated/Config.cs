@@ -14,13 +14,15 @@ public static class Config {
 
     public static class General {
         public static ConfigEntry<PresetType> Preset;
+        public static ConfigEntry<bool> Colors;
         
         public static void Initialize(ConfigGroup config) {
-            Preset = config.Bind("Preset", PresetType.Default, "Selects a custom shadow preset.");
+            Preset = config.Bind("Preset", PresetType.Default, "Select a custom shadow preset.");
+            Colors = config.Bind("Custom Colors", false, "Enable custom colors for shadows.");
         }
     }
 
-    public static class Custom {
+    public static class Sprites {
         public static ConfigEntry<SpriteType> OnBeat;
         public static ConfigEntry<SpriteType> SixthBeat;
         public static ConfigEntry<SpriteType> QuarterBeat;
@@ -42,10 +44,61 @@ public static class Config {
             FiveSixthBeat = config.Bind("Five-Sixth Beat", SpriteType.Star, "Sprite for the shadows of monsters aligned to the five-sixth-beat.");
             OtherBeat = config.Bind("Other", SpriteType.Star, "Sprite for the shadow of all other monsters.");
         }
+        
+        public static SpriteType GetSpriteType(BeatType beatType) => (beatType switch {
+            BeatType.OnBeat => OnBeat,
+            BeatType.SixthBeat => SixthBeat,
+            BeatType.QuarterBeat => QuarterBeat,
+            BeatType.ThirdBeat => ThirdBeat,
+            BeatType.HalfBeat => HalfBeat,
+            BeatType.TwoThirdBeat => TwoThirdBeat,
+            BeatType.ThreeQuarterBeat => ThreeQuarterBeat,
+            BeatType.FiveSixthBeat => FiveSixthBeat,
+            _ => OtherBeat
+        }).Value;
+    }
+
+    public static class Colors {
+        public static ConfigEntry<Color> OnBeat;
+        public static ConfigEntry<Color> SixthBeat;
+        public static ConfigEntry<Color> QuarterBeat;
+        public static ConfigEntry<Color> ThirdBeat;
+        public static ConfigEntry<Color> HalfBeat;
+        public static ConfigEntry<Color> TwoThirdBeat;
+        public static ConfigEntry<Color> ThreeQuarterBeat;
+        public static ConfigEntry<Color> FiveSixthBeat;
+        public static ConfigEntry<Color> OtherBeat;
+
+        public static void Initialize(ConfigGroup config) {
+            // TODO: make our own defaults
+            var color = new Color(0.616f, 0.545f, 1f);
+            OnBeat = config.Bind("On Beat", color, "Color for the shadows of monsters aligned to the beat.");
+            SixthBeat = config.Bind("Sixth Beat", color, "Color for the shadows of monsters aligned to the sixth-beat.");
+            QuarterBeat = config.Bind("Quarter Beat", color, "Color for the shadows of monsters aligned to the quarter-beat.");
+            ThirdBeat = config.Bind("Third Beat", color, "Color for the shadows of monsters aligned to the third-beat.");
+            HalfBeat = config.Bind("Half Beat", color, "Color for the shadows of monsters aligned to the half-beat.");
+            TwoThirdBeat = config.Bind("Two-Third Beat", color, "Color for the shadows of monsters aligned to the two-third-beat.");
+            ThreeQuarterBeat = config.Bind("Three-Quarter Beat", color, "Color for the shadows of monsters aligned to the three-quarter-beat.");
+            FiveSixthBeat = config.Bind("Five-Sixth Beat", color, "Color for the shadows of monsters aligned to the five-sixth-beat.");
+            OtherBeat = config.Bind("Other", color, "Color for the shadow of all other monsters.");
+        }
+
+        public static Color GetColor(BeatType beatType) => (beatType switch {
+            BeatType.OnBeat => OnBeat,
+            BeatType.SixthBeat => SixthBeat,
+            BeatType.QuarterBeat => QuarterBeat,
+            BeatType.ThirdBeat => ThirdBeat,
+            BeatType.HalfBeat => HalfBeat,
+            BeatType.TwoThirdBeat => TwoThirdBeat,
+            BeatType.ThreeQuarterBeat => ThreeQuarterBeat,
+            BeatType.FiveSixthBeat => FiveSixthBeat,
+            _ => OtherBeat
+        }).Value;
     }
 
     public static void Initialize(ConfigFile config) {
         General.Initialize(new(config, "General"));
-        Custom.Initialize(new(config, "Custom"));
+        Sprites.Initialize(new(config, "Custom Sprites"));
+        Colors.Initialize(new(config, "Custom Colors"));
     }
 }

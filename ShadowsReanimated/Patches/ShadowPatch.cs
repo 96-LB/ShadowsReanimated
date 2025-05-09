@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RhythmRift.Enemies;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace ShadowsReanimated.Patches;
 
@@ -23,10 +24,23 @@ public class ShadowState : State<RREnemy, ShadowState> {
                 BeatType.HalfBeat => Instance._halfBeatShadowSprite,
                 _ => Instance._otherBeatShadowSprite
             };
-            if(Shadow.sprite == Instance._otherBeatShadowSprite) {
-                Plugin.Log.LogWarning($"{Instance.DisplayName} {Instance.SpawnTrueBeatNumber} {Instance.NextActionRowTrueBeatNumber}");
-            }
         }
+
+        RefreshColor();
+    }
+
+    public void RefreshColor() {
+        if(!Shadow || !Config.General.Colors.Value || Instance._isVibePowerActive || Instance._isPartOfVibeChain) {
+            return;
+        }
+        
+        Shadow.material.shader = Shader.Find("Sprites/Default"); // TODO: this is both inefficient and bad and wrong
+        Shadow.color = Config.Colors.GetColor(Beat);
+
+        // the old shader properties mess with our color
+        Shadow.GetPropertyBlock(Instance._enemyShadowMatPropBlock);
+        Instance._enemyShadowMatPropBlock.SetColor(RREnemy.ColorShaderPropertyId, Color.white);
+        Shadow.SetPropertyBlock(Instance._enemyShadowMatPropBlock);
     }
 
     public void FlipSpriteIfNeeded() {
@@ -45,6 +59,7 @@ public static class ShadowPatch {
         var state = ShadowState.Of(__instance);
         var beat = Beat.GetBeatType(__instance.SpawnTrueBeatNumber);
         state.SetShadow(Preset.Current, beat, force: true);
+        state.RefreshColor();
         state.FlipSpriteIfNeeded();
     }
 
@@ -61,6 +76,13 @@ public static class ShadowPatch {
         // prevent the original code from overwriting our shadow
         __instance._isOnBeat = __instance.NextActionRowTrueBeatNumber % 1f <= 0.05f || __instance.NextActionRowTrueBeatNumber % 1f >= 0.95f;
         __instance._isHalfBeat = __instance.NextActionRowTrueBeatNumber % 1f >= 0.45f && __instance.NextActionRowTrueBeatNumber % 1f <= 0.55f;
+    }
+
+    [HarmonyPostfix]
+    [HarmonyPatch(nameof(RREnemy.RefreshShadowColor))]
+    public static void RefreshShadowColor(RREnemy __instance) {
+        var state = ShadowState.Of(__instance);
+        state.RefreshColor();
     }
 
     [HarmonyPostfix]
