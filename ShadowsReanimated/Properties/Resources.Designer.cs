@@ -63,9 +63,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HollowDiamond {
+        internal static byte[] Circle {
             get {
-                object obj = ResourceManager.GetObject("HollowDiamond", resourceCulture);
+                object obj = ResourceManager.GetObject("Circle", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HollowSquare {
+        internal static byte[] CircleRing {
             get {
-                object obj = ResourceManager.GetObject("HollowSquare", resourceCulture);
+                object obj = ResourceManager.GetObject("CircleRing", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] LeftShortTrapezoid {
+        internal static byte[] Diamond {
             get {
-                object obj = ResourceManager.GetObject("LeftShortTrapezoid", resourceCulture);
+                object obj = ResourceManager.GetObject("Diamond", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DiamondRing {
+            get {
+                object obj = ResourceManager.GetObject("DiamondRing", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -113,16 +123,6 @@ namespace ShadowsReanimated.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] RightShortTrapezoid {
-            get {
-                object obj = ResourceManager.GetObject("RightShortTrapezoid", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] RightTrapezoid {
             get {
                 object obj = ResourceManager.GetObject("RightTrapezoid", resourceCulture);
@@ -136,6 +136,56 @@ namespace ShadowsReanimated.Properties {
         internal static byte[] RightTriangle {
             get {
                 object obj = ResourceManager.GetObject("RightTriangle", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Square {
+            get {
+                object obj = ResourceManager.GetObject("Square", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SquareRing {
+            get {
+                object obj = ResourceManager.GetObject("SquareRing", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Star {
+            get {
+                object obj = ResourceManager.GetObject("Star", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Triangle {
+            get {
+                object obj = ResourceManager.GetObject("Triangle", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TriangleRing {
+            get {
+                object obj = ResourceManager.GetObject("TriangleRing", resourceCulture);
                 return ((byte[])(obj));
             }
         }

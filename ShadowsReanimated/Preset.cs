@@ -15,24 +15,30 @@ public enum PresetType {
 public class Preset(params (BeatType, SpriteType)[] sprites) {
     private static readonly Dictionary<PresetType, Preset> presets = new() {
         [PresetType.Default] = new(
+            (BeatType.OnBeat, SpriteType.Circle),
             (BeatType.QuarterBeat, SpriteType.LeftTriangle),
             (BeatType.ThirdBeat, SpriteType.LeftTrapezoid),
+            (BeatType.HalfBeat, SpriteType.Diamond),
             (BeatType.TwoThirdBeat, SpriteType.RightTrapezoid),
             (BeatType.ThreeQuarterBeat, SpriteType.RightTriangle)
         ),
         [PresetType.Delta] = new(
+            (BeatType.OnBeat, SpriteType.Circle),
             (BeatType.SixthBeat, SpriteType.LeftTrapezoid),
-            (BeatType.QuarterBeat, SpriteType.HollowSquare),
+            (BeatType.QuarterBeat, SpriteType.SquareRing),
             (BeatType.ThirdBeat, SpriteType.LeftTriangle),
+            (BeatType.HalfBeat, SpriteType.Diamond),
             (BeatType.TwoThirdBeat, SpriteType.RightTriangle),
-            (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond),
+            (BeatType.ThreeQuarterBeat, SpriteType.DiamondRing),
             (BeatType.FiveSixthBeat, SpriteType.RightTrapezoid)
         ),
         [PresetType.Katie] = new(
-            (BeatType.QuarterBeat, SpriteType.HollowCircle),
+            (BeatType.OnBeat, SpriteType.Circle),
+            (BeatType.QuarterBeat, SpriteType.CircleRing),
             (BeatType.ThirdBeat, SpriteType.Triangle),
-            (BeatType.TwoThirdBeat, SpriteType.HollowTriangle),
-            (BeatType.ThreeQuarterBeat, SpriteType.HollowDiamond)
+            (BeatType.HalfBeat, SpriteType.Diamond),
+            (BeatType.TwoThirdBeat, SpriteType.TriangleRing),
+            (BeatType.ThreeQuarterBeat, SpriteType.DiamondRing)
         ),
         [PresetType.Custom] = new CustomPreset()
     };
