@@ -39,7 +39,7 @@ public class ShadowState : State<RREnemy, ShadowState> {
         RefreshColor();
     }
 
-    public void RefreshColor() {
+    public void RefreshColor(bool forceMaterialRefresh = false) {
         if(!Shadow) {
             return;
         }
@@ -48,8 +48,16 @@ public class ShadowState : State<RREnemy, ShadowState> {
             VanillaMaterial = Shadow.material;
         }
 
-        if(!Config.General.Colors.Value || Instance._isVibePowerActive || Instance._isPartOfVibeChain) {
-            Shadow.material = VanillaMaterial;
+        // fall back to vanilla colors if the corresponding settings aren't active
+        if(
+            !Config.General.Colors.Value
+            || (Instance._isPartOfVibeChain && !Config.General.VibeChainOverride.Value)
+            || (Instance._isVibePowerActive && !Config.General.VibePowerOverride.Value)
+        ) {
+            // if the vanilla game called this function, we also need to reset the material
+            if(forceMaterialRefresh) {
+                Shadow.material = VanillaMaterial;
+            }
             return;
         }
         
@@ -101,7 +109,7 @@ public static class ShadowPatch {
     [HarmonyPatch(nameof(RREnemy.RefreshShadowColor))]
     public static void RefreshShadowColor(RREnemy __instance) {
         var state = ShadowState.Of(__instance);
-        state.RefreshColor();
+        state.RefreshColor(forceMaterialRefresh: true);
     }
 
     [HarmonyPostfix]
