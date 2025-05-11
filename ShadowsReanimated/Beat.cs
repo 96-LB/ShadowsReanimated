@@ -2,6 +2,7 @@
 
 namespace ShadowsReanimated;
 
+
 public enum BeatType {
     OnBeat,
     SixthBeat,

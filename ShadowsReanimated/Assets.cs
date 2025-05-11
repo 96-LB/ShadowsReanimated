@@ -23,7 +23,6 @@ public enum SpriteType {
     Custom
 }
 
-
 public static class Assets {
     private static readonly Dictionary<SpriteType, Sprite> sprites = [];
     private static readonly Dictionary<BeatType, Sprite> customs = [];

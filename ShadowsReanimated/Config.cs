@@ -1,8 +1,8 @@
 ﻿using BepInEx.Configuration;
 using UnityEngine;
 
-
 namespace ShadowsReanimated;
+
 
 public static class Config {
     public class ConfigGroup(ConfigFile config, string group) {
