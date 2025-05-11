@@ -23,7 +23,7 @@ public static class Config {
 
         public static void Initialize(ConfigGroup config) {
             Preset = config.Bind("Preset", PresetType.Default, "Select a custom shadow preset.");
-            Colors = config.Bind("Custom Colors", false, "Enable custom colors for shadows.");
+            Colors = config.Bind("Custom Colors", true, "Enable custom colors for shadows.");
             VibeChainOverride = config.Bind("Vibe Chain Override", false, "Override the shadow color of enemies in a vibe chain.");
             VibePowerOverride = config.Bind("Vibe Power Override", false, "Override the shadow color of enemies when vibe power is active.");
         }
