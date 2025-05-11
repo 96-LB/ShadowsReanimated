@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ShadowsReanimated;
 
+
 public enum PresetType {
     Default,
     Delta,
