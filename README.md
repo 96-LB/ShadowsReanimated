@@ -5,6 +5,14 @@ This project is a mod for Rift of the NecroDancer which adds new enemy shadow ty
 
 The current version is <ins>**v0.0.0**</ins> and is compatible with Patch 1.4.0-b20638 released on 5 May 2025. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
 
+You can use this track to check that you've installed the mod correctly. If everything is working, you should see the NecroDancer on the left and Cadence on the right, both in their attire from Crypt of the NecroDancer. These portraits are not my own; they're unused assets from an earlier version of the game.
+
+To preview the mod, check out the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) on the Steam workshop or view the video below.
+
+[![showcase video](https://github.com/user-attachments/assets/92732cab-7b8b-4d56-9232-445d8e030562)](https://www.youtube.com/watch?v=xkEGyyYabao)
+
+
+
 ## Installation
 
 Rift of the NecroManager runs on BepInEx 5. In order to use this mod, you must first install BepInEx into your Rift of the NecroDancer game folder. A more detailed guide can be found [here](https://docs.bepinex.dev/articles/user_guide/installation/index.html), but a summary is provided below. If BepInEx is already installed, you can skip the next subsection.
@@ -39,7 +47,7 @@ Rift of the NecroManager runs on BepInEx 5. In order to use this mod, you must f
 
    > ℹ️ You can find this folder by right clicking on the game in your Steam library and clicking 'Properties'. Then navigate to 'Installed Files' and click 'Browse'.
 
-4. Check that your mod is working by playing the mod showcase level.
+4. Check that your mod is working by playing the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) level.
 
 ### Installing Rift of the NecroManager (highly recommended)
 
