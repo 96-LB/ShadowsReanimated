@@ -1,6 +1,9 @@
 ﻿using BepInEx.Configuration;
 using UnityEngine;
+
+
 namespace ShadowsReanimated;
+
 public static class Config {
     public class ConfigGroup(ConfigFile config, string group) {
         public ConfigEntry<T> Bind<T>(string key, T defaultValue, string description) {
