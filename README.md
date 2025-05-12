@@ -66,7 +66,7 @@ Shadows Reanimated has a variety of options to allow you to personalize the look
 - Katie: Triplet enemies have isoceles triangles. The triangle is solid for 1/3 and a ring for 2/3. Quadruplet enemies have rings: circle-shaped for 1/4 and diamond-shaped for 3/4.
 - Vanilla: Shapes are unchanged from the base game.
 
-All presets use the vanilla shapes of circles for on-beats, diamonds for half-beats, and stars for anything that doesn't have a designated shadow. If you're unsatisfied with these options, you can mix and match shapes from the various presets, or even add your own. To do so, set the 'Preset' configuration option to 'Custom' and use the settings under the 'Custom Preset' category to choose a shape for each beat type. To use custom shadows for a beat type, set the sprite to 'Custom' and refer to the next section.
+All presets use the vanilla shapes of circles for on-beats, diamonds for half-beats, and stars for anything that doesn't have a designated shadow. If you're unsatisfied with these options, you can mix and match shapes from the various presets, or even add your own. To do so, set the 'Preset' configuration option to 'Custom' and use the settings under the 'Custom Sprites' category to choose a shape for each beat type. To use custom shadows for a beat type, set the sprite to 'Custom' and refer to the next section.
 
 You can use the options in the 'Custom Colors' category to change the shadow colors for each beat type. Or, if you prefer, you can turn them off entirely with the 'Custom Colors' option in the 'General' category. You can also choose to disable the yellow shadows from vibe chains and vibe power if you would like to have your color choices always be visible.
 
