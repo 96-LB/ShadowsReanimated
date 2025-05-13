@@ -5,8 +5,6 @@ This project is a mod for Rift of the NecroDancer which adds new enemy shadow ty
 
 The current version is <ins>**v0.1.0**</ins> and is compatible with Patch 1.4.0-b20638 released on 5 May 2025. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
 
-You can use this track to check that you've installed the mod correctly. If everything is working, you should see the NecroDancer on the left and Cadence on the right, both in their attire from Crypt of the NecroDancer. These portraits are not my own; they're unused assets from an earlier version of the game.
-
 To preview the mod, check out the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) on the Steam workshop or view the video below.
 
 [![showcase video](https://github.com/user-attachments/assets/92732cab-7b8b-4d56-9232-445d8e030562)](https://www.youtube.com/watch?v=xkEGyyYabao)
