@@ -54,7 +54,7 @@ In order to configure the mod to your liking, you are strongly encouraged to add
 ## Usage
 
 After installation, your shadows will be configured with the default presets. If you like the standard settings, great - you're all set! If you want to tweak the appearance of your shadows, keep reading for more information.
-   > ⚠️ You may notice some extra star shadows on enemies that should be on-beat, especially in vanilla charts. This is not an issue with the mod - it's an issue with the game's charting! Some enemies are misaligned, and the vanilla game incorrect assigns shadows which hide the fact that they're slightly off-beat.
+   > ⚠️ You may notice some extra star shadows on enemies that should be on-beat, especially in vanilla charts. This is not an issue with the mod - it's an issue with the game's charting! Some enemies are misaligned, and the vanilla game incorrectly assigns shadows which hide the fact that they're slightly off-beat.
 
 ### Changing shadow shapes and colors
 
