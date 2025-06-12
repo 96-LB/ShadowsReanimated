@@ -13,7 +13,7 @@ public class Plugin : BaseUnityPlugin {
     const string GUID = "com.lalabuff.necrodancer.shadowsreanimated";
     const string NAME = "ShadowsReanimated";
     const string VERSION = "0.2.0";
-    readonly static string[] BUILDS = ["1.5.0-b20860", "1.4.0-b20638"];
+    readonly static string[] BUILDS = ["1.5.0-b20869", "1.5.0-b20860", "1.4.0-b20638"];
 
     internal static ManualLogSource Log { get; private set; }
 
@@ -21,13 +21,16 @@ public class Plugin : BaseUnityPlugin {
         try {
             Log = Logger;
 
+            ShadowsReanimated.Config.Initialize(Config);
+
             var build = BuildInfoHelper.Instance.BuildId;
-            if(!BUILDS.Contains(build)) {
+            var overrideVersion = ShadowsReanimated.Config.VersionControl.VersionOverride.Value;
+            var check = BUILDS.Contains(build) || build == overrideVersion || overrideVersion == "*";
+            if(!check) {
                 Log.LogFatal($"The current version of the game is not compatible with this plugin. Please update the game or the mod to the correct version. The current mod version is v{VERSION} and the current game version is {build}. Allowed game versions: {string.Join(", ", BUILDS)}");
                 return;
             }
-        
-            ShadowsReanimated.Config.Initialize(Config);
+            
             Assets.Initialize();
 
             Harmony harmony = new(GUID);

@@ -106,9 +106,18 @@ public static class Config {
         }).Value;
     }
 
+    public static class VersionControl {
+        public static ConfigEntry<string> VersionOverride;
+
+        public static void Initialize(ConfigGroup config) {
+            VersionOverride = config.Bind("Version Override", "", "Input the current build version or '*' to override the version check.");
+        }
+    }
+
     public static void Initialize(ConfigFile config) {
         General.Initialize(new(config, "General"));
         Sprites.Initialize(new(config, "Custom Sprites"));
         Colors.Initialize(new(config, "Custom Colors"));
+        VersionControl.Initialize(new(config, "Version Control"));
     }
 }
