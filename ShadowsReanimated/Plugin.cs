@@ -12,8 +12,8 @@ namespace ShadowsReanimated;
 public class Plugin : BaseUnityPlugin {
     const string GUID = "com.lalabuff.necrodancer.shadowsreanimated";
     const string NAME = "ShadowsReanimated";
-    const string VERSION = "0.2.1";
-    readonly static string[] BUILDS = ["1.5.0-b20869", "1.5.0-b20860", "1.4.0-b20638"];
+    const string VERSION = "0.2.2";
+    readonly static string[] BUILDS = ["1.5.0", "1.4.0"];
 
     internal static ManualLogSource Log { get; private set; }
 
@@ -23,7 +23,7 @@ public class Plugin : BaseUnityPlugin {
 
             ShadowsReanimated.Config.Initialize(Config);
 
-            var build = BuildInfoHelper.Instance.BuildId;
+            var build = BuildInfoHelper.Instance.BuildId.Split('-')[0];
             var overrideVersion = ShadowsReanimated.Config.VersionControl.VersionOverride.Value;
             var check = BUILDS.Contains(build) || build == overrideVersion || overrideVersion == "*";
             if(!check) {
