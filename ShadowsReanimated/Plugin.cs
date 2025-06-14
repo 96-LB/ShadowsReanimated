@@ -10,10 +10,12 @@ namespace ShadowsReanimated;
 
 [BepInPlugin(GUID, NAME, VERSION)]
 public class Plugin : BaseUnityPlugin {
-    const string GUID = "com.lalabuff.necrodancer.shadowsreanimated";
-    const string NAME = "ShadowsReanimated";
-    const string VERSION = "0.2.2";
-    readonly static string[] BUILDS = ["1.5.0", "1.4.0"];
+    public const string GUID = "com.lalabuff.necrodancer.shadowsreanimated";
+    public const string NAME = "ShadowsReanimated";
+    public const string VERSION = "0.2.2";
+
+    public const string ALLOWED_VERSIONS = "1.5.0 1.4.0";
+    public static string[] AllowedVersions => ALLOWED_VERSIONS.Split(' ');
 
     internal static ManualLogSource Log { get; private set; }
 
@@ -23,11 +25,11 @@ public class Plugin : BaseUnityPlugin {
 
             ShadowsReanimated.Config.Initialize(Config);
 
-            var build = BuildInfoHelper.Instance.BuildId.Split('-')[0];
+            var gameVersion = BuildInfoHelper.Instance.BuildId.Split('-')[0];
             var overrideVersion = ShadowsReanimated.Config.VersionControl.VersionOverride.Value;
-            var check = BUILDS.Contains(build) || build == overrideVersion || overrideVersion == "*";
+            var check = AllowedVersions.Contains(gameVersion) || gameVersion == overrideVersion || overrideVersion == "*";
             if(!check) {
-                Log.LogFatal($"The current version of the game is not compatible with this plugin. Please update the game or the mod to the correct version. The current mod version is v{VERSION} and the current game version is {build}. Allowed game versions: {string.Join(", ", BUILDS)}");
+                Log.LogFatal($"The current version of the game is not compatible with this plugin. Please update the game or the mod to the correct version. The current mod version is {VERSION} and the current game version is {gameVersion}. Allowed game versions: {string.Join(", ", AllowedVersions)}");
                 return;
             }
             
