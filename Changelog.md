@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.4 - 25 June 2025
+Updated game version. Compatible with Patch 1.6.0.
+
 ## v0.2.3 - 21 June 2025
 Updated game version. Compatible with Patch 1.5.1.
 
