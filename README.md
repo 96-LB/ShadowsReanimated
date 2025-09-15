@@ -3,7 +3,7 @@ This project is a mod for Rift of the NecroDancer which adds new enemy shadow ty
 
 > ⚠️ BepInEx mods are <ins>**not officially supported**</ins> by Rift of the NecroDancer. If you encounter any issues with this mod, please open an issue on this GitHub repository, and do not submit reports to Brace Yourself Games! In order to prevent serious bugs, this mod will automatically disable itself when you update your game, and you will have to return here to download a new, compatible version.
 
-The current version is <ins>**v0.2.5**</ins> and is compatible with Rift of the NecroDancer Patch 1.7.0 released on 13 August 2025. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
+The current version is <ins>**v0.2.6**</ins> and is compatible with Rift of the NecroDancer Patch 1.7.0 released on 13 August 2025 and Beta Patch 1.7.1 released on 20 August 2025. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
 
 To preview the mod, check out the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) on the Steam workshop or view the video below.
 

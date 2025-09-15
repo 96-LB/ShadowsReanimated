@@ -12,9 +12,9 @@ namespace ShadowsReanimated;
 public class Plugin : BaseUnityPlugin {
     public const string GUID = "com.lalabuff.necrodancer.shadowsreanimated";
     public const string NAME = "ShadowsReanimated";
-    public const string VERSION = "0.2.5";
+    public const string VERSION = "0.2.6";
 
-    public const string ALLOWED_VERSIONS = "1.7.0 1.6.0 1.5.1 1.5.0 1.4.0";
+    public const string ALLOWED_VERSIONS = "1.7.1 1.7.0 1.6.0 1.5.1 1.5.0 1.4.0";
     public static string[] AllowedVersions => ALLOWED_VERSIONS.Split(' ');
 
     internal static ManualLogSource Log { get; private set; }

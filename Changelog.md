@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.6 - 15 September 2025
+- Fixed a bug which caused transparency settings for custom shadow colors to be ignored by some monsters.
+
+Updated game version. Compatible with Patch 1.7.1.
+
 ## v0.2.5 - 14 August 2025
 Updated game version. Compatible with Patch 1.7.0.
 
