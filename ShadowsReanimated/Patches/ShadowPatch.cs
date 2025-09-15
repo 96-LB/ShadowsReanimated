@@ -68,6 +68,8 @@ public class ShadowState : State<RREnemy, ShadowState> {
         Shadow.GetPropertyBlock(Instance._enemyShadowMatPropBlock);
         Instance._enemyShadowMatPropBlock.SetColor(RREnemy.ColorShaderPropertyId, Color.white);
         Shadow.SetPropertyBlock(Instance._enemyShadowMatPropBlock);
+
+        Shadow.name = "ShadowsReanimated"; // some monsters have an animation which force-sets the alpha channel to 1! this breaks the link to the animation
     }
 
     public void FlipSpriteIfNeeded() {
@@ -86,7 +88,6 @@ public static class ShadowPatch {
         var state = ShadowState.Of(__instance);
         var beat = Beat.GetBeatType(__instance.SpawnTrueBeatNumber);
         state.SetShadow(Preset.Current, beat, force: true);
-        state.RefreshColor();
         state.FlipSpriteIfNeeded();
     }
 
@@ -98,6 +99,7 @@ public static class ShadowPatch {
             var state = ShadowState.Of(__instance);
             var beat = Beat.GetBeatType(__instance.NextActionRowTrueBeatNumber);
             state.SetShadow(Preset.Current, beat);
+            state.RefreshColor();
         }
 
         // prevent the original code from overwriting our shadow
