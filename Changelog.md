@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.8 - 18 September 2025
+Updated game version. Compatible with Patch 1.10.0.
+
 ## v0.2.7 - 18 September 2025
 Updated game version. Compatible with Patch 1.8.0.
 
