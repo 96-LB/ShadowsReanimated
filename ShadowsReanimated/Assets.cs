@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.IO;
+using RiftOfTheNecroManager;
 
 namespace ShadowsReanimated;
 
@@ -45,7 +46,7 @@ public static class Assets {
         );
     }
 
-    public static void Initialize() {
+    static Assets() {
         // load default sprites from resources
         var spriteTypes = Enum.GetValues(typeof(SpriteType)) as SpriteType[];
         foreach(var type in spriteTypes) {
@@ -58,7 +59,7 @@ public static class Assets {
         // load custom sprites from the filesystem
         var path = Path.Combine(Path.GetDirectoryName(Application.dataPath), "ShadowsReanimated");
         if(!Directory.Exists(path)) {
-            Plugin.Log.LogInfo($"No custom shadows directory found. The folder should be named 'ShadowsReanimated' and located in the same directory as the game executable. No custom shadows will be loaded.");
+            Log.Info($"No custom shadows directory found. The folder should be named 'ShadowsReanimated' and located in the same directory as the game executable. No custom shadows will be loaded.");
             return;
         }
 
@@ -70,12 +71,12 @@ public static class Assets {
                 var sprite = MakeSprite(data);
                 if(sprite) {
                     customs[type] = sprite;
-                    Plugin.Log.LogInfo($"Loaded custom shadow sprite for {type}.");
+                    Log.Info($"Loaded custom shadow sprite for {type}.");
                 } else {
-                    Plugin.Log.LogWarning($"Failed to load custom shadow sprite for {type}. The file may not be a valid PNG image.");
+                    Log.Warning($"Failed to load custom shadow sprite for {type}. The file may not be a valid PNG image.");
                 }
             } else {
-                Plugin.Log.LogInfo($"No custom shadow sprite found for {type}. The file should be named '{Enum.GetName(typeof(BeatType), type)}.png' and located in the 'ShadowsReanimated' directory.");
+                Log.Info($"No custom shadow sprite found for {type}. The file should be named '{Enum.GetName(typeof(BeatType), type)}.png' and located in the 'ShadowsReanimated' directory.");
             }
         }
     }

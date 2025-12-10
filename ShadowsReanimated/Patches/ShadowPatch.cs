@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RhythmRift.Enemies;
+using RiftOfTheNecroManager;
 using UnityEngine;
 
 namespace ShadowsReanimated.Patches;
@@ -50,9 +51,9 @@ public class ShadowState : State<RREnemy, ShadowState> {
 
         // fall back to vanilla colors if the corresponding settings aren't active
         if(
-            !Config.General.Colors.Value
-            || (Instance._isPartOfVibeChain && !Config.General.VibeChainOverride.Value)
-            || (Instance._isVibePowerActive && !Config.General.VibePowerOverride.Value)
+            !Config.General.Colors
+            || (Instance._isPartOfVibeChain && !Config.General.VibeChainOverride)
+            || (Instance._isVibePowerActive && !Config.General.VibePowerOverride)
         ) {
             // if the vanilla game called this function, we also need to reset the material
             if(forceMaterialRefresh) {

@@ -43,7 +43,7 @@ public class Preset(params (BeatType, SpriteType)[] sprites) {
         ),
         [PresetType.Custom] = new CustomPreset()
     };
-    public static Preset Current => presets.GetValueOrDefault(Config.General.Preset.Value);
+    public static Preset Current => presets.GetValueOrDefault(Config.General.Preset);
 
     private readonly Dictionary<BeatType, SpriteType> sprites = sprites.ToDictionary(x => x.Item1, x => x.Item2);
 
