@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>ShadowsReanimated</AssemblyName>
     <Product>ShadowsReanimated</Product>
-    <Version>0.2.9</Version>
+    <Version>1.0.0-beta</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -28,6 +28,9 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\RiftOfTheNecroDancer.dll</HintPath>
+    </Reference>
+    <Reference Include="RiftOfTheNecroManager">
+      <HintPath>lib\RiftOfTheNecroManager.dll</HintPath>
     </Reference>
     <Reference Include="TicToc.ObjectPooling.Runtime">
       <HintPath>lib\TicToc.ObjectPooling.Runtime.dll</HintPath>
