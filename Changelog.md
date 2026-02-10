@@ -1,4 +1,9 @@
-# Changelog
+﻿# Changelog
+
+## 🧪 v1.0.0-beta - 10 February 2026
+⚠️ **This release contains breaking changes.**
+- Removed the hardcoded version check in favor of an automated version control system.
+- ⚠️ Added Rift of the NecroManager as a dependency.
 
 ## v0.2.9 - 10 December 2025
 Updated game version. Compatible with Patch 1.11.1.
