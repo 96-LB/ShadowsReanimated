@@ -1,9 +1,10 @@
 # Shadows Reanimated
 This project is a mod for Rift of the NecroDancer which adds new enemy shadow types to make it easier to read off-beat enemies. The mod includes support for changing both the shapes and the colors of shadows, and everything is fully customizable. Players can choose between a variety of default shadow shapes, or even create their own custom shadow sprites. In order to help distinguish between different types of off-beat enemies, unique shadows can be selected for enemies on thirds, quarters, and sixths of a beat.
 
-> ⚠️ BepInEx mods are <ins>**not officially supported**</ins> by Rift of the NecroDancer. If you encounter any issues with this mod, please open an issue on this GitHub repository, and do not submit reports to Brace Yourself Games! In order to prevent serious bugs, this mod will automatically disable itself when you update your game, and you will have to return here to download a new, compatible version.
+> [!WARNING]
+> BepInEx mods are <ins>**not officially supported**</ins> by Rift of the NecroDancer. If you encounter any issues with this mod, please open an issue on this GitHub repository, and do not submit reports to Brace Yourself Games!
 
-The current version is <ins>**v0.2.9**</ins> and is compatible with Rift of the NecroDancer Patch 1.11.1 released on 10 December 2025. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
+The current version is <ins>**v1.0.0**</ins>. Downloads for the latest version can be found [here](https://github.com/96-LB/ShadowsReanimated/releases/latest). The changelog can be found [here](Changelog.md).
 
 To preview the mod, check out the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) on the Steam workshop or view the video below.
 
@@ -18,43 +19,52 @@ Shadows Reanimated runs on BepInEx 5. In order to use this mod, you must first i
 ### Installing BepInEx
 1. Navigate to the latest release of BepInEx 5 [here](https://github.com/BepInEx/BepInEx/releases).
 
-    > ⚠️ This mod is only tested for compatibility with BepInEx 5. If the above link takes you to a version of BepInEx 6, check out [the full list of releases](https://github.com/BepInEx/BepInEx/releases).
+> [!WARNING]
+> This mod is only tested for compatibility with BepInEx 5. If the above link takes you to a version of BepInEx 6, check out [the full list of releases](https://github.com/BepInEx/BepInEx/releases).
 
-2. Expand the "Assets" tab at the bottom and download the correct `.zip` file for your operating system.
+2. Expand the "Assets" tab at the bottom and download `BepInEx_win_x64_5.X.Y.Z.zip`.
 
-    > ℹ️ For example, if you use 64-bit Windows, download `BepInEx_win_x64_5.X.Y.Z.zip`.
+> [!IMPORTANT]
+> Download the 64-bit Windows version even if you use a different operating system!, download `BepInEx_win_x64_5.X.Y.Z.zip`.
 
-4. Extract the contents of the `.zip` file into your Rift of the NecroDancer game folder.
+3. Extract the contents of the `.zip` file into your Rift of the NecroDancer game folder.
 
-    > ℹ️ You can find this folder by right clicking on the game in your Steam library and clicking 'Properties'. Then navigate to 'Installed Files' and click 'Browse'.
+> [!TIP]
+> You can find this folder by right clicking on the game in your Steam library and clicking 'Properties'. Then navigate to 'Installed Files' and click 'Browse'.
 
-6. If you're on Mac or Linux, configure Steam to run BepInEx when you launch your game. Follow the guide [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html).
+4. If you're on Mac or Linux, configure Steam to run BepInEx when you launch your game.
 
-7. Run Rift of the NecroDancer to set up BepInEx.
+> [!TIP]
+> Add `WINEDLLOVERRIDES="winhttp=n,b" %command%` to the launch options in the game's properties, or follow the guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html).
 
-    > ℹ️ If done correctly, your `BepInEx` folder should now contain several subfolders, such as `BepInEx/plugins`.
+5. Run Rift of the NecroDancer to set up BepInEx.
+
+6. Check that the installation was successful by looking for a folder called `plugins` inside of your `BepInEx` folder.
 
 ### Installing Shadows Reanimated
 1. Navigate to the latest release of Shadows Reanimated [here](https://github.com/96-LB/ShadowsReanimated/releases/latest).
 
-   > ⚠️ Do NOT download the source code using the button at the top of this page. If you're downloading a `.zip`, you are at the wrong place.
+> [!CAUTION]
+> Do NOT download the source code using the button at the top of this page. If you're downloading a `.zip` file, you are at the wrong place.
 
-2. Expand the "Assets" tab at the bottom and download `ShadowsReanimated.dll`.
+2. Expand the "Assets" tab at the bottom and download `RiftOfTheNecroManager.dll` and `ShadowsReanimated.dll`.
+
+> [!TIP]
+> If you have already installed the latest version of `RiftOfTheNecroManager.dll`, you can skip installing it again. Make sure you keep Rift of the NecroManager up to date!
 
 3. Place `ShadowsReanimated.dll` in the `BepInEx/plugins` directory inside the Rift of the NecroDancer game folder.
 
-   > ℹ️ You can find this folder by right clicking on the game in your Steam library and clicking 'Properties'. Then navigate to 'Installed Files' and click 'Browse'.
+> [!TIP]
+> You can find this folder by right clicking on the game in your Steam library and clicking 'Properties'. Then navigate to 'Installed Files' and click 'Browse'.
 
 4. Check that your mod is working by playing the [mod showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3480138263) level.
-
-### Installing Rift of the NecroManager (highly recommended)
-
-In order to configure the mod to your liking, you are strongly encouraged to additionally install [Rift of the NecroManager](https://github.com/96-LB/RiftOfTheNecroManager), which adds an in-game settings menu for mods. If you already have a mod manager installed, or you prefer manually editing your configuration files, you can skip this step. Detailed installation instructions can be found [here](https://github.com/96-LB/RiftOfTheNecroManager), but the process is the same as in the previous subsection.
 
 ## Usage
 
 After installation, your shadows will be configured with the default presets. If you like the standard settings, great - you're all set! If you want to tweak the appearance of your shadows, keep reading for more information.
-   > ⚠️ You may notice some extra star shadows on enemies that should be on-beat, especially in vanilla charts. This is not an issue with the mod - it's an issue with the game's charting! Some enemies are misaligned, and the vanilla game incorrectly assigns shadows which hide the fact that they're slightly off-beat.
+
+> [!WARNING]
+> You may notice some extra star shadows on enemies that should be on-beat, especially in vanilla charts. This is not an issue with the mod - it's an issue with the game's charting! Some enemies are misaligned, and the vanilla game incorrectly assigns shadows which hide the fact that they're slightly off-beat.
 
 ### Changing shadow shapes and colors
 

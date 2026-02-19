@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 🧪 v1.0.0-beta - 10 February 2026
+## v1.0.0 - 19 February 2026
 ⚠️ **This release contains breaking changes.**
 - Removed the hardcoded version check in favor of an automated version control system.
 - ⚠️ Added Rift of the NecroManager as a dependency.
