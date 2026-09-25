@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v1.1.0 - 25 September 2026
+- Added a tolerance slider to adjust the sensitivity of the shadow detection. When set to a lower value, shadows will be more accurate, but slightly misplaced enemies in base game charts may display as "Other Beat" shadows (by default, red stars). The vanilla tolerance is -1.3, the new default is -2.5, and the old behaviour was -3.
+- Fixed a rare visual issue with asymmetric shadows on monsters that flip every beat.
+
 ## v1.0.0 - 19 February 2026
 ⚠️ **This release contains breaking changes.**
 - Removed the hardcoded version check in favor of an automated version control system.
