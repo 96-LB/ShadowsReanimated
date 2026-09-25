@@ -1,4 +1,5 @@
-﻿using RiftOfTheNecroManager;
+﻿using BepInEx.Configuration;
+using RiftOfTheNecroManager;
 using UnityEngine;
 
 namespace ShadowsReanimated;
@@ -8,6 +9,13 @@ public static class Config {
     public static class General {
         public const string GROUP = "General";
         public static Setting<PresetType> Preset { get; }  = new(GROUP, "Preset", PresetType.Default, "Select a custom shadow preset.");
+        public static Setting<float> Tolerance { get; } = new(
+            GROUP,
+            "Tolerance",
+            -2.5f,
+            "Logarithmic tolerance for beat alignment. Turn this down for more precise shadows, and up to round \"Other Beat\" shadows to nearby shadow types.",
+            new AcceptableValueRange<float>(-4, -1)
+        );
         public static Setting<bool> Colors { get; } = new(GROUP, "Custom Colors", true, "Enable custom colors for shadows.");
         public static Setting<bool> VibeChainOverride { get; } = new(GROUP, "Vibe Chain Override", false, "Override the shadow color of enemies in a vibe chain.");
         public static Setting<bool> VibePowerOverride { get; } = new(GROUP, "Vibe Power Override", false, "Override the shadow color of enemies when vibe power is active.");
